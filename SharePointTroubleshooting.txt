@@ -1,0 +1,71 @@
+Set a site as your home site
+https://docs.microsoft.com/en-us/sharepoint/home-site
+
+Inicio Sarepoint
+click en Sharepoint on line management shell
+
+
+Connect-SPOService -Url https://bi2biz.sharepoint.com/-Credential jmoralest@bi2biz.onmicrosoft.com
+Pueden saltar errores, se resuelven asi:
+
+
+error
+Connect-SPOService : The sign-in name or password does not match one in the Microsoft account system.
+There are two possible reasons for this error – either you have made a mistake while inserting your credentials, or you have a multifactor authentication enabled (MFA). If it is due to the MFA, you will need to remove the -Credential parameter while connecting to SharePoint Online and enter your credentials with the traditional, login page experience.
+
+usar
+Connect-SPOService -Url https://bi2biz.sharepoint.com
+
+error
+Connect-SPOService : Current site is not a tenant administration site
+
+usar
+Connect-SPOService -Url https://bi2biz-admin.sharepoint.com/
+
+
+Set a site as your home site
+Set-SPOHomeSite -HomeSiteUrl https://bi2biz.sharepoint.com/sites/Principal
+
+Remove a site as your home site
+If you remove a site as your home site:
+
+The Home button will be removed from the Find tab of the SharePoint mobile app.
+If you enabled global navigation, the global navigation pane will be removed from the SharePoint app bar.
+Search will be scoped to the site only.
+To remove the site as your home site, run Remove-SPOHomeSite.
+
+
+
+*******************Sharepoint Online Management Shell****************************************
+PS C:\WINDOWS\System32> Connect-SPOService -Url https://bi2biz-admin.sharepoint.com/
+PS C:\WINDOWS\System32> Set-SPOHomeSite -HomeSiteUrl https://bi2biz.sharepoint.com/sites/Principal
+
+Confirmar
+Before you set a Home site, make sure you review the documentation at https://aka.ms/homesites. Continue?
+[S] Sí  [N] No  [U] Suspender  [?] Ayuda (el valor predeterminado es "S"): s
+
+Value
+-----
+The Home site has been set to https://bi2biz.sharepoint.com/sites/Principal. It may take some time for the change to...
+
+
+PS C:\WINDOWS\System32>
+
+
+*******************Sharepoint Online Management Shell****************************************
+
+
+
+
+https://bi2biz.sharepoint.com/
+
+
+
+
+
+
+
+
+
+
+
